@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kishori Modular Interiors — Modular Kitchens, Wardrobes &amp; Home Interiors</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FBF9F5;
+    --paper-warm:#F2EDE3;
+    --walnut:#3E2B1F;
+    --ink:#221C16;
+    --brass:#A87C4F;
+    --brass-dark:#8A6339;
+    --olive:#55603F;
+    --line:rgba(62,43,31,0.13);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:'Work Sans', sans-serif;font-size:16px;line-height:1.6;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;color:var(--walnut);margin:0;
+    font-weight:600;letter-spacing:-0.01em;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
+  section{padding:100px 0;}
+  @media (max-width:720px){ section{padding:60px 0;} }
+
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(251,249,245,0.9);backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1180px;margin:0 auto;padding:18px 28px;
+    display:flex;align-items:center;justify-content:space-between;gap:20px;
+  }
+  .brand{font-family:'Fraunces',serif;font-weight:600;font-size:1.1rem;color:var(--walnut);line-height:1.2;}
+  .brand small{display:block;font-family:'Work Sans',sans-serif;font-weight:500;font-size:0.66rem;color:var(--olive);margin-top:2px;letter-spacing:0.02em;}
+  nav ul{list-style:none;display:flex;gap:30px;margin:0;padding:0;}
+  nav a{font-size:0.93rem;font-weight:500;color:var(--ink);opacity:0.75;transition:opacity .2s;}
+  nav a:hover{opacity:1;color:var(--brass-dark);}
+  .nav-cta{background:var(--walnut);color:var(--paper)!important;padding:11px 22px;border-radius:2px;font-weight:500;font-size:0.88rem;white-space:nowrap;}
+  @media (max-width:840px){ nav ul{display:none;} }
+
+  /* Hero */
+  .hero{
+    position:relative;min-height:88vh;display:flex;align-items:flex-end;
+    background:linear-gradient(0deg, rgba(15,10,7,0.82) 0%, rgba(15,10,7,0.25) 55%, rgba(15,10,7,0.15) 100%), url('images/kitchen-3.jpg') center/cover no-repeat;
+  }
+  .hero-inner{padding:80px 0 72px;color:var(--paper);position:relative;z-index:1;}
+  .hero-inner .eyebrow{color:#e7d9c3;font-size:0.95rem;font-weight:500;margin-bottom:18px;}
+  .hero-inner h1{color:var(--paper);font-size:clamp(2.3rem,5vw,3.8rem);line-height:1.06;max-width:16ch;}
+  .hero-inner p.lead{margin-top:22px;font-size:1.1rem;max-width:46ch;color:#e9e2d5;}
+  .btn-row{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap;}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:2px;font-weight:500;font-size:0.95rem;transition:transform .15s ease, background .2s ease;border:1px solid transparent;}
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{background:var(--brass-dark);color:#fff;}
+  .btn-primary:hover{background:var(--walnut);}
+  .btn-outline{border-color:var(--paper);color:var(--paper);}
+  .btn-outline:hover{background:var(--paper);color:var(--walnut);}
+  .btn-outline-dark{border-color:var(--walnut);color:var(--walnut);}
+  .btn-outline-dark:hover{background:var(--walnut);color:#fff;}
+
+  /* Category tiles */
+  .cat-strip{margin-top:-64px;position:relative;z-index:2;}
+  .cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line);border:1px solid var(--line);box-shadow:0 20px 40px rgba(34,28,22,0.12);}
+  @media (max-width:760px){ .cat-grid{grid-template-columns:1fr;} }
+  .cat-tile{
+    position:relative;aspect-ratio:4/3;overflow:hidden;display:flex;align-items:flex-end;padding:26px;
+  }
+  .cat-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;transition:transform .5s ease;}
+  .cat-tile:hover img{transform:scale(1.05);}
+  .cat-tile::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg, rgba(0,0,0,0.6), transparent 60%);}
+  .cat-tile span{position:relative;z-index:2;color:#fff;font-family:'Fraunces',serif;font-size:1.25rem;}
+
+  /* About */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+  @media (max-width:800px){ .about-grid{grid-template-columns:1fr;gap:36px;} }
+  .about-grid h2{font-size:2.1rem;margin-bottom:20px;}
+  .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:8px;}
+  .stat{border-left:2px solid var(--brass);padding-left:16px;}
+  .stat .num{font-family:'Fraunces',serif;font-size:2rem;color:var(--walnut);}
+  .stat .label{font-size:0.88rem;color:#5a4c3e;margin-top:2px;}
+
+  .section-head{max-width:60ch;margin-bottom:48px;}
+  .section-head h2{font-size:2.1rem;}
+  .section-head p{margin-top:14px;color:#5a4c3e;font-size:1.02rem;}
+
+  /* Story panels */
+  .story{position:relative;min-height:70vh;display:flex;align-items:center;background-size:cover;background-position:center;}
+  .story-overlay{position:absolute;inset:0;}
+  .story.left .story-overlay{background:linear-gradient(90deg, rgba(15,10,7,0.72) 0%, rgba(15,10,7,0.25) 55%, transparent 100%);}
+  .story.right .story-overlay{background:linear-gradient(270deg, rgba(15,10,7,0.72) 0%, rgba(15,10,7,0.25) 55%, transparent 100%);}
+  .story-content{position:relative;z-index:1;max-width:460px;padding:0 28px;color:#fff;}
+  .story.right .story-content{margin-left:auto;text-align:left;}
+  .story-content h2{color:#fff;font-size:2rem;}
+  .story-content p{margin-top:16px;color:#eee3d2;font-size:1.02rem;}
+  .story-content a{display:inline-block;margin-top:22px;font-weight:500;border-bottom:1px solid rgba(255,255,255,0.5);padding-bottom:2px;}
+
+  /* Products */
+  .products{background:var(--paper-warm);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line);border:1px solid var(--line);}
+  @media (max-width:860px){ .prod-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:560px){ .prod-grid{grid-template-columns:1fr;} }
+  .prod-card{background:var(--paper);padding:34px 28px;min-height:220px;display:flex;flex-direction:column;justify-content:space-between;}
+  .prod-card .icon{width:38px;height:38px;color:var(--brass-dark);margin-bottom:20px;}
+  .prod-card h3{font-size:1.15rem;margin-bottom:8px;}
+  .prod-card p{font-size:0.92rem;color:#5a4c3e;margin:0;}
+
+  /* Process */
+  .process-row{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;}
+  @media (max-width:800px){ .process-row{grid-template-columns:1fr 1fr;} }
+  @media (max-width:480px){ .process-row{grid-template-columns:1fr;} }
+  .process-step .n{font-family:'Fraunces',serif;font-size:1.6rem;color:var(--brass);margin-bottom:10px;}
+  .process-step h3{font-size:1.05rem;margin-bottom:8px;}
+  .process-step p{font-size:0.9rem;color:#5a4c3e;margin:0;}
+
+  /* Visit CTA */
+  .visit-cta{
+    position:relative;min-height:56vh;display:flex;align-items:center;justify-content:center;text-align:center;
+    background:linear-gradient(rgba(15,10,7,0.68), rgba(15,10,7,0.68)), url('images/kitchen-5.jpg') center/cover no-repeat;
+  }
+  .visit-cta-inner{position:relative;z-index:1;color:#fff;max-width:520px;padding:0 28px;}
+  .visit-cta-inner h2{color:#fff;font-size:2rem;}
+  .visit-cta-inner p{margin-top:14px;color:#e9e2d5;}
+  .visit-cta .btn-row{justify-content:center;}
+
+  /* Gallery */
+  .gallery{background:var(--walnut);}
+  .gallery .section-head h2, .gallery .section-head p{color:var(--paper);}
+  .gallery .section-head p{opacity:0.75;}
+  .gal-tabs{display:flex;gap:10px;margin-bottom:32px;flex-wrap:wrap;}
+  .gal-tab{
+    padding:9px 20px;border-radius:20px;border:1px solid rgba(243,236,224,0.3);
+    background:transparent;color:#e7dcc9;font-family:'Work Sans',sans-serif;font-size:0.88rem;font-weight:500;
+    cursor:pointer;transition:background .2s ease, color .2s ease;
+  }
+  .gal-tab:hover{border-color:rgba(243,236,224,0.6);}
+  .gal-tab.active{background:var(--brass);border-color:var(--brass);color:#fff;}
+  .gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  @media (max-width:800px){ .gal-grid{grid-template-columns:repeat(2,1fr);} }
+  .gal-item{aspect-ratio:1/1;border-radius:2px;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:14px;background:#2b2118;}
+  .gal-item.hide{display:none;}
+  .gal-item img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+  .gal-item span{color:#f3ece0;font-size:0.85rem;font-weight:500;position:relative;z-index:2;}
+  .gal-item::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg, rgba(0,0,0,0.55), transparent 55%);}
+  .gal-note{margin-top:20px;font-size:0.85rem;color:#cabfa9;}
+
+  /* Reviews */
+  .review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  @media (max-width:800px){ .review-grid{grid-template-columns:1fr;} }
+  .review-card{background:var(--paper);border:1px solid var(--line);padding:28px;border-radius:2px;}
+  .stars{color:var(--brass-dark);font-size:0.95rem;margin-bottom:14px;letter-spacing:2px;}
+  .review-card p.quote{font-size:0.98rem;color:#3a3026;margin:0 0 18px;}
+  .review-card .who{font-size:0.87rem;color:#5a4c3e;font-weight:500;}
+  .review-note{margin-top:24px;font-size:0.85rem;color:#8a7a66;}
+
+  /* FAQ */
+  .faq{background:var(--paper-warm);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .faq-list{max-width:760px;}
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-item summary{
+    list-style:none;cursor:pointer;padding:22px 0;font-family:'Fraunces',serif;font-size:1.08rem;color:var(--walnut);
+    display:flex;justify-content:space-between;align-items:center;gap:20px;
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{content:"+";font-size:1.4rem;color:var(--brass-dark);flex-shrink:0;}
+  .faq-item[open] summary::after{content:"–";}
+  .faq-item p{margin:0 0 22px;color:#5a4c3e;font-size:0.96rem;max-width:65ch;}
+
+  /* Contact */
+  .contact{background:var(--paper);}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;}
+  @media (max-width:860px){ .contact-grid{grid-template-columns:1fr;} }
+  .field{margin-bottom:18px;}
+  .field label{display:block;font-size:0.85rem;font-weight:500;margin-bottom:6px;color:var(--walnut);}
+  .field input, .field textarea{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:2px;background:var(--paper-warm);font-family:'Work Sans',sans-serif;font-size:0.95rem;color:var(--ink);}
+  .field input:focus, .field textarea:focus{outline:2px solid var(--brass);outline-offset:1px;}
+  .contact-info{display:flex;flex-direction:column;gap:22px;}
+  .info-row{display:flex;gap:14px;align-items:flex-start;}
+  .info-row .icon{width:22px;height:22px;color:var(--brass-dark);flex-shrink:0;margin-top:3px;}
+  .info-row h3{font-size:1rem;margin-bottom:4px;color:var(--walnut);}
+  .info-row p{margin:0;font-size:0.92rem;color:#5a4c3e;}
+  .map-box{margin-top:6px;aspect-ratio:16/9;border-radius:2px;border:1px solid var(--line);overflow:hidden;}
+  .map-box iframe{width:100%;height:100%;border:0;}
+
+  footer{background:var(--ink);color:#cabfa9;padding:64px 0 28px;}
+  .footer-top{max-width:640px;margin-bottom:48px;}
+  .footer-top .brand-line{font-family:'Fraunces',serif;color:#f3ece0;font-size:1.4rem;margin-bottom:14px;}
+  .footer-top p{font-size:0.95rem;line-height:1.75;color:#b9ac97;}
+  .footer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-bottom:40px;}
+  @media (max-width:700px){ .footer-grid{grid-template-columns:1fr;gap:28px;} }
+  footer h4{color:#f3ece0;font-family:'Fraunces',serif;font-weight:500;font-size:1rem;margin-bottom:14px;}
+  footer ul{list-style:none;padding:0;margin:0;}
+  footer li{margin-bottom:8px;font-size:0.88rem;}
+  footer a:hover{color:#f3ece0;}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:20px;font-size:0.8rem;color:#8a7a66;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+
+  .wa-float{position:fixed;right:22px;bottom:22px;z-index:60;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,0.25);}
+  .wa-float svg{width:28px;height:28px;fill:#fff;}
+
+  ::selection{background:var(--brass);color:#fff;}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} .btn,.cat-tile img{transition:none;} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <div class="brand">Kishori Modular Interiors<small>Kitchens · Wardrobes · Home Interiors</small></div>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="nav-cta" href="https://wa.me/919138130321" target="_blank" rel="noopener">Get in touch</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div class="eyebrow">Modular Kitchens &amp; Home Interiors — Assandh, Karnal</div>
+    <h1>A space, made to fit your life</h1>
+    <p class="lead">Kishori Modular Interiors designs and builds modular kitchens, wardrobes and complete home interiors — measured for your space, made to last.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="https://wa.me/919138130321" target="_blank" rel="noopener">Get a free quote</a>
+      <a class="btn btn-outline" href="#gallery">See our work</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap cat-strip">
+  <div class="cat-grid">
+    <a class="cat-tile" href="#products"><img src="images/kitchen-4.jpg" alt="Modular kitchen"><span>Modular kitchens</span></a>
+    <a class="cat-tile" href="#products"><img src="images/wardrobe-4.jpg" alt="Wardrobe"><span>Wardrobes</span></a>
+    <a class="cat-tile" href="#products"><img src="images/kitchen-6.jpg" alt="Full home interiors"><span>Full home interiors</span></a>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div>
+      <h2>About the workshop</h2>
+      <p style="margin-top:16px;color:#4a3d33;">Kishori Modular Interiors plans and builds modular kitchens, wardrobes and full home interiors from design to installation. We work directly with each household — measuring the space ourselves, choosing materials that suit daily use, and building it in our own workshop before fitting it on site.</p>
+      <p style="margin-top:14px;color:#4a3d33;">No sub-contracted guesswork, no showroom-only samples — what you approve is what gets built.</p>
+    </div>
+    <div>
+      <div class="stat-row">
+        <div class="stat"><div class="num">10+</div><div class="label">Years in the trade</div></div>
+        <div class="stat"><div class="num">500+</div><div class="label">Homes fitted</div></div>
+        <div class="stat"><div class="num">100%</div><div class="label">On-site measurement</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="story left" style="background-image:url('images/wardrobe-3.jpg');">
+  <div class="story-overlay"></div>
+  <div class="wrap"><div class="story-content">
+    <h2>A wardrobe for how you actually dress</h2>
+    <p>Sliding or hinged, with loft storage, display niches or open shelving — every wardrobe is laid out around what you own, not a standard template.</p>
+    <a href="#products">Explore wardrobe options →</a>
+  </div></div>
+</div>
+
+<div class="story right" style="background-image:url('images/kitchen-2.jpg');">
+  <div class="story-overlay"></div>
+  <div class="wrap"><div class="story-content">
+    <h2>Kitchens designed around how you cook</h2>
+    <p>L-shaped, U-shaped or with an island — layouts, finishes and hardware chosen for daily cooking, not just how it photographs.</p>
+    <a href="#products">Explore kitchen options →</a>
+  </div></div>
+</div>
+
+<section class="products" id="products">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What we build</h2>
+      <p>From a single wardrobe to a full home fit-out — every piece is designed for your space and made to order.</p>
+    </div>
+  </div>
+  <div class="prod-grid">
+    <div class="prod-card">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 10h18M9 10v10"/></svg>
+      <div><h3>Modular Kitchens</h3><p>L-shaped, U-shaped and island layouts with hardware built for daily cooking, not just display.</p></div>
+    </div>
+    <div class="prod-card">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M12 3v18M4 9h16M4 15h16"/></svg>
+      <div><h3>Wardrobes &amp; Storage</h3><p>Sliding and hinged wardrobes, loft units and utility storage, fitted to the exact corner.</p></div>
+    </div>
+    <div class="prod-card">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="18" height="10" rx="1"/><path d="M7 21h10M12 17v4"/></svg>
+      <div><h3>TV &amp; Living Units</h3><p>Entertainment units, crockery units and living-room storage that suit the room's proportions.</p></div>
+    </div>
+    <div class="prod-card">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 21V9l8-6 8 6v12"/><path d="M9 21v-6h6v6"/></svg>
+      <div><h3>Full Home Interiors</h3><p>Design and execution for an entire flat or house, coordinated as one project, one timeline.</p></div>
+    </div>
+    <div class="prod-card">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      <div><h3>Office Interiors</h3><p>Workstations, storage and reception units for shops, clinics and small offices.</p></div>
+    </div>
+    <div class="prod-card">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      <div><h3>Renovation &amp; Repair</h3><p>Fixing shutters, hinges and worn-out modular units from earlier work — yours or someone else's.</p></div>
+    </div>
+  </div>
+
+  <div class="wrap" style="margin-top:72px;">
+    <div class="section-head" style="margin-bottom:36px;">
+      <h2>How a project runs</h2>
+    </div>
+    <div class="process-row">
+      <div class="process-step"><div class="n">01</div><h3>Site visit</h3><p>We measure your space and understand how you'll use it.</p></div>
+      <div class="process-step"><div class="n">02</div><h3>Design &amp; quote</h3><p>A layout, material choices and a clear quote — no hidden lines.</p></div>
+      <div class="process-step"><div class="n">03</div><h3>Workshop build</h3><p>Units are built in our workshop to the approved design.</p></div>
+      <div class="process-step"><div class="n">04</div><h3>Fitting</h3><p>Installed on site and checked with you before we call it done.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="visit-cta">
+  <div class="visit-cta-inner">
+    <h2>Visit our workshop</h2>
+    <p>284, 33 Feeta Gali, Near Tashil Road, Vishkarmanagar, Assandh, Karnal (Haryana) — 132039. Open daily, 9:00 AM – 6:30 PM.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="https://www.google.com/maps/dir//Kishori+Modular+Interiors,+284,+33+Feeta+Gali,+near+Tashil+Road,+Vishkarmanagar,+Assandh,+Haryana+132039/@29.5115271,76.6066105,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x390e070c996f19bf:0xe73ea9756a5e003!2m2!1d76.6096099!2d29.5180491" target="_blank" rel="noopener">Get directions</a>
+      <a class="btn btn-outline" href="https://wa.me/919138130321" target="_blank" rel="noopener">WhatsApp us</a>
+    </div>
+  </div>
+</div>
+
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Recent work</h2>
+      <p>A look at kitchens, wardrobes and interiors we've completed.</p>
+    </div>
+    <div class="gal-tabs">
+      <button class="gal-tab active" data-cat="all">All</button>
+      <button class="gal-tab" data-cat="kitchen">Kitchens</button>
+      <button class="gal-tab" data-cat="wardrobe">Wardrobes</button>
+    </div>
+    <div class="gal-grid" id="galGrid">
+      <div class="gal-item" data-cat="kitchen"><img src="images/kitchen-1.jpg" alt="Modular kitchen with wooden accents"><span>Modular kitchen</span></div>
+      <div class="gal-item" data-cat="wardrobe"><img src="images/wardrobe-1.jpg" alt="Sliding wardrobe with gold inlay"><span>Sliding wardrobe</span></div>
+      <div class="gal-item" data-cat="kitchen"><img src="images/kitchen-2.jpg" alt="L-shaped modular kitchen"><span>L-shaped kitchen</span></div>
+      <div class="gal-item" data-cat="wardrobe"><img src="images/wardrobe-2.jpg" alt="Walk-in wardrobe storage"><span>Walk-in storage</span></div>
+      <div class="gal-item" data-cat="kitchen"><img src="images/kitchen-3.jpg" alt="Open kitchen with terrazzo backsplash"><span>Kitchen with island</span></div>
+      <div class="gal-item" data-cat="wardrobe"><img src="images/wardrobe-3.jpg" alt="Curved-shutter wardrobe with display niche"><span>Wardrobe with display niche</span></div>
+      <div class="gal-item" data-cat="kitchen"><img src="images/kitchen-4.jpg" alt="Beige gloss modular kitchen"><span>Gloss-finish kitchen</span></div>
+      <div class="gal-item" data-cat="wardrobe"><img src="images/wardrobe-4.jpg" alt="Wardrobe with scalloped shutter pattern"><span>Sliding wardrobe, patterned</span></div>
+      <div class="gal-item" data-cat="kitchen"><img src="images/kitchen-5.jpg" alt="Kitchen with black glass unit"><span>Kitchen with display unit</span></div>
+      <div class="gal-item" data-cat="kitchen"><img src="images/kitchen-6.jpg" alt="Two-tone pastel modular kitchen"><span>Two-tone kitchen</span></div>
+    </div>
+    <p class="gal-note">More photos coming soon — this gallery updates as new projects are completed.</p>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What customers say</h2>
+    </div>
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">Our kitchen was measured and fitted within the timeline they promised. The drawers still run smooth a year on.</p>
+        <div class="who">— Sample review, Assandh</div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">They handled the wardrobes for our whole flat. Good finish and they came back to fix a small hinge issue without any fuss.</p>
+        <div class="who">— Sample review, Karnal</div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★☆</div>
+        <p class="quote">Clear quote, no surprise costs later. Would recommend for anyone doing a full home interior.</p>
+        <div class="who">— Sample review, Panipat</div>
+      </div>
+    </div>
+    <p class="review-note">These are placeholder reviews — swap in your real customer feedback once you have it.</p>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Questions, answered</h2>
+      <p>Common things people ask before starting a project with us.</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>How do I book a site visit?</summary>
+        <p>Message us on WhatsApp or call the numbers below with your area and rough requirement — we'll fix a time to come measure your space, free of cost.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How long does a modular kitchen or wardrobe take to complete?</summary>
+        <p>A single kitchen or wardrobe usually takes 2–4 weeks from final measurement to fitting, depending on size and material availability. Full home interiors take longer and we'll give you a clear timeline in the quote.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do you provide after-sale service?</summary>
+        <p>Yes — hinges, drawer channels and shutters are covered for a period after installation, and we come back to fix issues that arise from normal use.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I choose my own materials and finishes?</summary>
+        <p>Yes. We'll show you material and finish options during the design stage and build to whatever you approve — you're not limited to a fixed catalogue.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do you only work in Assandh, or nearby areas too?</summary>
+        <p>We're based in Assandh and take on projects across Karnal and nearby towns. Message us your location and we'll confirm.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <h2 style="font-size:2rem;margin-bottom:24px;">Get a free quote</h2>
+      <form id="quoteForm">
+        <div class="field">
+          <label for="name">Your name</label>
+          <input type="text" id="name" required>
+        </div>
+        <div class="field">
+          <label for="phone">Phone number</label>
+          <input type="tel" id="phone" required>
+        </div>
+        <div class="field">
+          <label for="message">What do you need?</label>
+          <textarea id="message" rows="4" placeholder="e.g. Modular kitchen for a 2BHK, approx. 10ft counter"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="border:none;cursor:pointer;">Send on WhatsApp</button>
+      </form>
+    </div>
+    <div class="contact-info">
+      <div class="info-row">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <div>
+          <h3>Call or WhatsApp</h3>
+          <p>+91 91381 30321 (WhatsApp)<br>+91 81688 24614</p>
+        </div>
+      </div>
+      <div class="info-row">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div>
+          <h3>Showroom / Workshop</h3>
+          <p>284, 33 Feeta Gali, Near Tashil Road, Vishkarmanagar, Assandh, Karnal (Haryana) — 132039</p>
+        </div>
+      </div>
+      <div class="info-row">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        <div>
+          <h3>Working hours</h3>
+          <p>Open daily, 9:00 AM – 6:30 PM</p>
+        </div>
+      </div>
+      <div class="map-box">
+        <iframe src="https://www.google.com/maps?q=29.5180491,76.6096099&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Kishori Modular Interiors location"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="brand-line">Kishori Modular Interiors</div>
+      <p>Based in Assandh, Karnal, we design and build modular kitchens, wardrobes and complete home interiors — measured, made and fitted by one team, with no sub-contracted guesswork.</p>
+    </div>
+    <div class="footer-grid">
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#products">Modular Kitchens</a></li>
+          <li><a href="#products">Wardrobes &amp; Storage</a></li>
+          <li><a href="#products">TV &amp; Living Units</a></li>
+          <li><a href="#products">Full Home Interiors</a></li>
+          <li><a href="#products">Office Interiors</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+919138130321">+91 91381 30321</a></li>
+          <li><a href="tel:+918168824614">+91 81688 24614</a></li>
+          <li><a href="https://wa.me/919138130321" target="_blank" rel="noopener">WhatsApp us</a></li>
+          <li>Assandh, Karnal (Haryana) 132039</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Kishori Modular Interiors. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/919138130321" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.06 4c-4.9 0-8.9 4-8.9 8.9 0 1.57.42 3.1 1.2 4.44L3 21l3.77-1.32a8.9 8.9 0 0 0 5.29 1.7h.01c4.9 0 8.9-4 8.9-8.9a8.86 8.86 0 0 0-2.37-6.16zM12.06 19.7a7.4 7.4 0 0 1-3.78-1.03l-.27-.16-2.8.98.93-2.73-.18-.28a7.4 7.4 0 0 1-1.14-3.94c0-4.1 3.34-7.44 7.45-7.44a7.4 7.4 0 0 1 7.44 7.44c0 4.1-3.34 7.44-7.44 7.44l-.21-.28zm4.08-5.58c-.22-.11-1.31-.65-1.51-.72-.2-.07-.35-.11-.5.11s-.58.72-.71.87-.26.17-.48.06a6.1 6.1 0 0 1-1.79-1.11 6.7 6.7 0 0 1-1.24-1.54c-.13-.22 0-.34.1-.45.1-.1.22-.26.33-.39.11-.13.15-.22.22-.37.07-.15.04-.28-.02-.39-.06-.11-.5-1.2-.68-1.65-.18-.43-.36-.37-.5-.38h-.43a.82.82 0 0 0-.6.28 2.5 2.5 0 0 0-.78 1.85c0 1.09.79 2.14.9 2.29.11.15 1.55 2.36 3.75 3.31.52.22.93.36 1.25.46.53.17 1 .14 1.38.09.42-.06 1.31-.53 1.49-1.05.18-.51.18-.95.13-1.05-.05-.1-.2-.16-.42-.27z"/></svg>
+</a>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  var tabs = document.querySelectorAll('.gal-tab');
+  var items = document.querySelectorAll('#galGrid .gal-item');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){ t.classList.remove('active'); });
+      tab.classList.add('active');
+      var cat = tab.getAttribute('data-cat');
+      items.forEach(function(item){
+        if(cat === 'all' || item.getAttribute('data-cat') === cat){
+          item.classList.remove('hide');
+        } else {
+          item.classList.add('hide');
+        }
+      });
+    });
+  });
+
+  document.getElementById('quoteForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = document.getElementById('name').value.trim();
+    var phone = document.getElementById('phone').value.trim();
+    var message = document.getElementById('message').value.trim();
+    var text = "Hi Kishori Modular Interiors, I'm " + name + " (" + phone + "). " + (message || "I'd like a quote.");
+    var url = "https://wa.me/919138130321?text=" + encodeURIComponent(text);
+    window.open(url, '_blank');
+  });
+</script>
+
+</body>
+</html>
